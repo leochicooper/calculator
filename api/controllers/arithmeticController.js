@@ -11,7 +11,8 @@ exports.calculate = function(req, res) {
   });
 
   var operations = {
-    'add': function(a,b) { return a + b },
+    //typecast string concat prevent
+    'add': function(a,b) { return +a + +b },
     'subtract': function(a,b) { return a - b },
     'multiply': function(a,b) { return a * b },
     'divide':   function(a,b) { return a / b },
@@ -48,3 +49,4 @@ exports.calculate = function(req, res) {
 
   res.json({ result: operation(req.query.operand1, req.query.operand2) });
 };
+
